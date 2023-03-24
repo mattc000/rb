@@ -13,5 +13,5 @@ test("should throw error if instructions are longer than 100 characters in lengt
         .map(() => "F")
         .join()
     )
-  ).toThrowError("");
+  ).toThrowError("instructions must be less than 100 characters in length");
 });

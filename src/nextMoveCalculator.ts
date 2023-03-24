@@ -1,17 +1,18 @@
 import { Coordinates, Orientation, Instruction } from "./types";
 
+export const orientationValues: Orientation[] = ["N", "E", "S", "W"];
+
 export const nextMoveCalculator = (
   coordinates: Coordinates,
   orientation: Orientation,
   instruction: Instruction
-) => {
+): { coordinates: Coordinates; orientation: Orientation } => {
   if (instruction === "L" || instruction === "R") {
     const orientationMovement: Record<"L" | "R", number> = {
       L: -1,
       R: 1,
     };
 
-    const orientationValues: Orientation[] = ["N", "E", "S", "W"];
     const nextIndex =
       orientationValues.indexOf(orientation) + orientationMovement[instruction];
     const nextOrientation = orientationValues[nextIndex];
