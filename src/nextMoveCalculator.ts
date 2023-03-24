@@ -1,9 +1,4 @@
-type Coordinates = {
-  x: number;
-  y: number;
-};
-type Orientation = "N" | "E" | "S" | "W";
-type Instruction = "L" | "R" | "F";
+import { Coordinates, Orientation, Instruction } from "./types";
 
 export const nextMoveCalculator = (
   coordinates: Coordinates,
