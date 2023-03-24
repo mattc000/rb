@@ -8,6 +8,7 @@ export const nextMoveCalculator = (
   instruction: Instruction
 ): { coordinates: Coordinates; orientation: Orientation } => {
   if (instruction === "L" || instruction === "R") {
+    // no movement so just rotate
     const orientationMovement: Record<"L" | "R", number> = {
       L: -1,
       R: 1,
@@ -17,6 +18,7 @@ export const nextMoveCalculator = (
       orientationValues.indexOf(orientation) + orientationMovement[instruction];
     const nextOrientation = orientationValues[nextIndex];
 
+    // rotated left past North so must now be west
     if (!nextOrientation && nextIndex < 0) {
       return {
         coordinates,
@@ -37,6 +39,7 @@ export const nextMoveCalculator = (
     };
   }
 
+  // map of possible movements
   const vectorMap: Record<Orientation, Coordinates> = {
     N: { x: 0, y: 1 },
     E: { x: 1, y: 0 },
